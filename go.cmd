@@ -5,12 +5,13 @@ if "%1"=="-v" (
     shift
     echo on
 )
-if "%1"=="" (
-    echo>&2 Missing new project path specification!
+IF %THIS_DIR:~-1%==\ SET THIS_DIR=%THIS_DIR:~0,-1%
+set PROJECT_NAME=
+set PROJECT_NAME=%~nx1
+if not defined PROJECT_NAME (
+    echo>&2 Missing or invalid project path specification!
     exit /b 1
 )
-set PROJECT_NAME=%~nx1
-IF %THIS_DIR:~-1%==\ SET THIS_DIR=%THIS_DIR:~0,-1%
 git clone "%THIS_DIR%" %1 || goto :EOF
 pushd %1
     rd /s /q .git                                               ^
