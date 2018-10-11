@@ -1,5 +1,6 @@
 @echo off
 setlocal
+set THIS_NAME=%~nx0
 set THIS_DIR=%~dp0
 if "%1"=="-v" (
     shift
@@ -28,6 +29,8 @@ pushd %1
  && dotnet sln add tests                                        ^
  && dotnet add tests reference src                              ^
  && dotnet test tests                                           ^
+ && del README.md                                               ^
+ && del "%THIS_NAME%"                                           ^
  && git add .                                                   ^
  && git add --chmod +x *.sh
 popd
