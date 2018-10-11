@@ -1,4 +1,4 @@
-@echo off
+::@echo off
 setlocal
 set PROJECT_NAME=%~nx1
 set THIS_DIR=%~dp0
@@ -31,4 +31,4 @@ echo .##....##..##.......##.....##.##.....##....##...
 echo .##.....##.########.##.....##.########.....##...
 echo ................................................
 echo May the Force be with you!
-cd %1
+cd /d %1
