@@ -12,12 +12,15 @@ if not defined PROJECT_NAME (
     echo>&2 Missing or invalid project path specification!
     exit /b 1
 )
+set DEFAULT_GIT_USER_EMAIL=atifaziz@users.noreply.github.com
+set /p GIT_USER_EMAIL=Enter e-mail address for commits (default = %DEFAULT_GIT_USER_EMAIL%):
+if not defined GIT_USER_EMAIL set GIT_USER_EMAIL=%DEFAULT_GIT_USER_EMAIL%
 git clone "%THIS_DIR%" %1 || goto :EOF
 pushd %1
     rd /s /q .git                                               ^
  && git init                                                    ^
  && git config user.name "Atif Aziz"                            ^
- && git config user.email "atifaziz@users.noreply.github.com"   ^
+ && git config user.email "%GIT_USER_EMAIL%"                    ^
  && dotnet new sln                                              ^
  && dotnet new classlib -o src -n "%PROJECT_NAME%"              ^
  && dotnet new nunit -o tests -n "%PROJECT_NAME%.Tests"         ^
