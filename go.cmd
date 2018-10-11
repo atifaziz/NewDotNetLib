@@ -1,7 +1,11 @@
-::@echo off
+@echo off
 setlocal
-set PROJECT_NAME=%~nx1
 set THIS_DIR=%~dp0
+if "%1"=="-v" (
+    shift
+    echo on
+)
+set PROJECT_NAME=%~nx1
 IF %THIS_DIR:~-1%==\ SET THIS_DIR=%THIS_DIR:~0,-1%
 git clone "%THIS_DIR%" %1 || goto :EOF
 pushd %1
