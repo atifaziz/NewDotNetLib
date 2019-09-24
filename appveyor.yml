@@ -7,6 +7,8 @@ skip_commits:
     - '*.md'
     - '*.txt'
 branches:
+  only:
+    - master
   except:
     - /.+[\-.]wip$/
     - wip
