@@ -15,6 +15,8 @@ branches:
 pull_requests:
   do_not_increment_build_number: true
 skip_tags: true
+environment:
+  DOTNET_CLI_TELEMETRY_OPTOUT: true
 before_build:
 - dotnet --info
 build_script:
