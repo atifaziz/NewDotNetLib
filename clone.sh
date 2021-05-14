@@ -28,6 +28,7 @@ dotnet add tests package coverlet.msbuild
 ./test.sh
 rm README.md
 rm "$THIS_NAME"
+rm clone.cmd
 git add .
 cat<<EOF
 ................................................

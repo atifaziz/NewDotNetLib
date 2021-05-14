@@ -1,6 +1,7 @@
 @echo off
 setlocal
-set THIS_NAME=%~nx0
+set THIS_NAME=%~n0
+set THIS_EXT=%~x0
 set THIS_DIR=%~dp0
 if "%1"=="-v" (
     shift
@@ -31,7 +32,9 @@ pushd %1
  && dotnet add tests package coverlet.msbuild                   ^
  && call test                                                   ^
  && del README.md                                               ^
- && del "%THIS_NAME%"                                           ^
+ && del "%THIS_NAME%%THIS_EXT%"                                 ^
+ && del "%THIS_NAME%.sh"                                        ^
+ && del clone.sh                                                ^
  && git add .                                                   ^
  && git add --chmod +x *.sh
 popd
