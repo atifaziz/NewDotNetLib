@@ -24,7 +24,6 @@ dotnet new nunit -o tests -n "${PROJECT_NAME}.Tests"
 dotnet sln add src
 dotnet sln add tests
 dotnet add tests reference src
-dotnet add tests package coverlet.msbuild
 ./test.sh
 rm README.md
 rm "$THIS_NAME"

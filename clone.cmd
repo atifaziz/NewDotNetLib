@@ -29,7 +29,6 @@ pushd %1
  && dotnet sln add src                                          ^
  && dotnet sln add tests                                        ^
  && dotnet add tests reference src                              ^
- && dotnet add tests package coverlet.msbuild                   ^
  && call test                                                   ^
  && del README.md                                               ^
  && del "%THIS_NAME%%THIS_EXT%"                                 ^
