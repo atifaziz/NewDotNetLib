@@ -33,7 +33,6 @@ pushd %1
  && del README.md                                               ^
  && del "%THIS_NAME%%THIS_EXT%"                                 ^
  && del "%THIS_NAME%.sh"                                        ^
- && del clone.sh                                                ^
  && git add .                                                   ^
  && git add --chmod +x *.sh
 popd
