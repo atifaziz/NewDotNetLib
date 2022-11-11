@@ -1,11 +1,11 @@
 @echo off
+setlocal
 pushd "%~dp0"
 call :main %*
-popd
-goto :EOF
+popd && exit /b %ERRORLEVEL%
 
 :main
     dotnet restore ^
  && dotnet build --no-restore -c Debug ^
  && dotnet build --no-restore -c Release
-goto :EOF
+exit /b %ERRORLEVEL%
