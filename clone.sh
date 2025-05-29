@@ -21,6 +21,7 @@ git config user.email "$GIT_USER_EMAIL"
 dotnet new sln
 dotnet new classlib -o src -n "$PROJECT_NAME"
 dotnet new nunit -o tests -n "${PROJECT_NAME}.Tests"
+rm tests/*.cs
 dotnet sln add src
 dotnet sln add tests
 dotnet add tests reference src

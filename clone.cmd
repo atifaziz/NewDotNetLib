@@ -26,6 +26,7 @@ pushd %1
  && dotnet new sln                                              ^
  && dotnet new classlib -o src -n "%PROJECT_NAME%"              ^
  && dotnet new nunit -o tests -n "%PROJECT_NAME%.Tests"         ^
+ && del tests\*.cs                                              ^
  && dotnet sln add src                                          ^
  && dotnet sln add tests                                        ^
  && dotnet add tests reference src                              ^
