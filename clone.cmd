@@ -23,7 +23,7 @@ pushd %1
  && git init                                                    ^
  && git config user.name "Atif Aziz"                            ^
  && git config user.email "%GIT_USER_EMAIL%"                    ^
- && dotnet new sln                                              ^
+ && dotnet new sln --format slnx                                ^
  && dotnet new classlib -o src -n "%PROJECT_NAME%"              ^
  && dotnet new nunit -o tests -n "%PROJECT_NAME%.Tests"         ^
  && del tests\*.cs                                              ^
